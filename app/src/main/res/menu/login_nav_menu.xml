@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <item
+        android:id="@+id/navigation_product2"
+        android:icon="@drawable/products"
+        android:title="OUR PRODUCT" />
+
+    <item
+        android:id="@+id/navigation_ebook2"
+        android:icon="@drawable/read_ebook"
+
+        android:title="READ E-BOOK" />
+
+    <item
+        android:id="@+id/navigation_notification2"
+        android:icon="@drawable/notifaction"
+
+        android:title="NOTIFICATION" />
+
+    <item
+        android:id="@+id/navigation_account2"
+        android:icon="@drawable/user"
+        android:title="ACCOUNT" />
+</menu>

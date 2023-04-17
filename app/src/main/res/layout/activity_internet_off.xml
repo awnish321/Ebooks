@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/Leee"
+    android:layout_height="500dp"
+    tools:context=".InternetOff">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/spinnerImageView"
+        app:lottie_rawRes="@raw/internets"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+
+</LinearLayout>

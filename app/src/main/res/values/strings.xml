@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Rachna Sagar DigiText</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Welcome to Rachna </string>
+    <string name="slide_11_title"> Sagar DigiText App</string>
+    <string name="slide_1_desc">You can easily buy Paperback and e-book with this application. You can also read e-book and Interactive e-book in this application.</string>
+
+    <string name="slide_3_title">Register Page</string>
+    <string name="slide_3_desc11">New Users: Kindly register with us.</string>
+    <string name="slide_31_desc11">Registered Users: Login using your registered email ID and password</string>
+
+
+    <string name="slide_4_title">Multiple Tab</string>
+    <string name="slide_4_desc">Method to download:</string>
+    <string name="slide_41_desc">1.	Download:
+    </string>
+    <string name="slide_42_desc">2.	Website: Tap to view rachnasagar.in website to buy paperback, ebooks, etc.</string>
+    <string name="slide_43_desc">3.	Ebook:
+	                                    Ebook: Tap to read e-book
+	                                    Interactive Ebook: Tap to read interactive e-book
+</string>
+    <string name="slide_44_desc">4.	Click the Download button. The book will be downloaded in pdf file format.</string>
+
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+    <string name="login_username_hint">Username</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_Mobile_hint">Enter your 10 Digit mobile Number</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_address_hint"> Address</string>
+    <string name="login_country_hint">Country</string>
+    <string name="login_email2_hint"> Your Email</string>
+    <string name="login_school_hint">Your School Name</string>
+    <string name="login_schooladdress_hint">Your School Address</string>
+    <string name="login_schoolaffirmationhint">Your School Affirmation code</string>
+    <string name="login_yourname_name">Your Name</string>
+    <string name="login_repassword_hint">Confirm Password</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>>
+
+
+</resources>

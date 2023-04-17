@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen4">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/lin1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/img_width_height"
+            android:layout_height="@dimen/img_width_height"
+            android:src="@drawable/ic_travel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slide_4_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/teext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin1"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="@dimen/desc_padding"
+        android:text="1.Download:"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:id="@+id/teext2"
+        android:layout_below="@+id/teext1"
+        android:paddingRight="@dimen/desc_padding"
+       android:layout_marginLeft="40dp"
+        android:text="•	Ebook: Tap to download and read e-book"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:id="@+id/teext3"
+        android:layout_below="@+id/teext2"
+        android:paddingRight="@dimen/desc_padding"
+        android:layout_marginLeft="40dp"
+        android:text="•	Interactive Ebook: Tap to download and read interactive e-book"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+
+
+    <TextView
+        android:id="@+id/teext4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teext3"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="@dimen/desc_padding"
+        android:text="2.Website:"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+
+    <TextView
+        android:id="@+id/teext5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teext4"
+        android:layout_marginLeft="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="@dimen/desc_padding"
+        android:text="•Tap to view rachnasagar.in website to buy paperback, ebooks, etc"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+
+    <TextView
+        android:id="@+id/teext6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teext5"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:text="3.Ebook : •Ebook: Tap to read e-book\n
+                 •Interactive Ebook: Tap to read "
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+    <TextView
+        android:id="@+id/teext7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teext6"
+
+        android:paddingLeft="20dp"
+        android:text="\t\t\t\t\t\t\t\t\t\t\tinteractive e-book"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/slide_desc" />
+
+
+
+</RelativeLayout>

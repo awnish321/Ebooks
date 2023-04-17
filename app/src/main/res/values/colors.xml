@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#F1706C</color>
+    <color name="purple_500">#F1706C</color>
+    <color name="purple_700">#F1706C</color>
+    <color name="teal_200">#DA0303</color>
+    <color name="teal_700">#DA0303</color>
+    <color name="black">#FF000000</color>
+
+    <color name="colorAccentDark">#005cb2</color>
+    <color name="colorAccentLight">#6ab7ff</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorRipple">@color/white_2</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_2">#33FFFFFF</color>
+
+
+        <color name="colorPrimary">#3F51B5</color>
+        <color name="colorPrimaryDark">#303F9F</color>
+        <color name="colorAccent">#FF4081</color>
+
+        <!-- Screens background color-->
+        <color name="bg_screen1">#f64c73</color>
+        <color name="bg_screen2">#D25220</color>
+        <color name="bg_screen3">#3395ff</color>
+        <color name="bg_screen4">#c873f4</color>
+
+        <!-- dots inactive colors -->
+        <color name="dot_dark_screen1">#d1395c</color>
+        <color name="dot_dark_screen2">#14a895</color>
+        <color name="dot_dark_screen3">#2278d4</color>
+        <color name="dot_dark_screen4">#a854d4</color>
+
+        <!-- dots active colors -->
+        <color name="dot_light_screen1">#f98da5</color>
+        <color name="dot_light_screen2">#8cf9eb</color>
+        <color name="dot_light_screen3">#93c6fd</color>
+        <color name="dot_light_screen4">#e4b5fc</color>
+
+        <array name="array_dot_active">
+            <item>@color/dot_light_screen1</item>
+            <item>@color/dot_light_screen2</item>
+            <item>@color/dot_light_screen3</item>
+            <item>@color/dot_light_screen4</item>
+        </array>
+
+        <array name="array_dot_inactive">
+            <item>@color/dot_dark_screen1</item>
+            <item>@color/dot_dark_screen2</item>
+            <item>@color/dot_dark_screen3</item>
+            <item>@color/dot_dark_screen4</item>
+        </array>
+
+
+
+
+    <!--normal colors-->
+    <color name="darkTextColor">#020000</color>
+
+
+    <!--colors for light mode-->
+    <color name="contentTextColor">#020000</color>
+    <color name="register_bk_color">#DA0303</color>
+    <color name="login_bk_color">#fff</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#DA0303</color>
+
+
+    <!-- Customize your icon here. -->
+    <color name="iconDrawableTint">#ff808080</color>
+    <color name="iconToolBarTint">#666666</color>
+
+    <!-- Customize your text here. -->
+    <color name="tabTextColor">#666666</color>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:baselineAligned="false"
+    android:id="@+id/Leee2"
+    android:layout_margin="50dp"
+    tools:context=".AccountPage"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:weightSum="2"
+    android:layout_marginTop="160dp"
+
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Hello, "
+        android:layout_weight="1.2"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:gravity="end"
+
+        android:textSize="22dp"
+        android:id="@+id/hello1"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text=""
+        android:layout_weight="1"
+        android:textSize="22dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#f7807c"
+        android:gravity="center"
+        android:id="@+id/accountprofiletext"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:text="YOUR ORDERS"
+        android:layout_marginTop="20dp"
+        android:background="#f7807c"
+        android:id="@+id/accountorder"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="YOUR ADDRESS"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:background="#f7807c"
+        android:id="@+id/accountaddress"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:text="YOUR PROFILE"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:background="#f7807c"
+        android:id="@+id/accountprofile"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="WISHLIST"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:background="#f7807c"
+        android:id="@+id/accountwishlist"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:text="Logout"
+
+        android:layout_marginTop="40dp"
+        android:textColor="#ffffff"
+        android:background="#f7807c"
+        android:id="@+id/accountlogout"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
