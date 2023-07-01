@@ -11,7 +11,6 @@
         android:layout_height="18sp"
         android:layout_gravity="top|center_horizontal"
         android:layout_marginLeft="9sp"
-        android:visibility="gone"
         android:background="@drawable/textshape"
         android:backgroundTint="#ED0E42"
         android:gravity="center"

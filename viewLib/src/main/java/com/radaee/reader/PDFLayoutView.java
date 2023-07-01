@@ -68,7 +68,6 @@ public class PDFLayoutView extends View implements LayoutListener, OnItemClickLi
 	private boolean m_zooming = false;
 	private int m_pageno = 0;
 	private PDFPos m_goto_pos = null;
-
     private GestureDetector m_gesture = null;
 	private Annotation m_annot = null;
 	private PDFPos m_annot_pos = null;
@@ -77,7 +76,6 @@ public class PDFLayoutView extends View implements LayoutListener, OnItemClickLi
 	private float m_annot_rect0[];
 	private float m_annot_x0;
 	private float m_annot_y0;
-
 	private Ink m_ink = null;
 	private Bitmap m_icon = null;
 	private float m_rects[];
@@ -1155,7 +1153,6 @@ public class PDFLayoutView extends View implements LayoutListener, OnItemClickLi
 				invalidate();
 		}
 	}
-
 	public void PDFSetInk(int code)
 	{
 		if( code == 0 )//start

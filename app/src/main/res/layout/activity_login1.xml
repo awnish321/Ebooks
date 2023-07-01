@@ -22,8 +22,7 @@
         android:textColor="#ffffff"
         android:textSize="12sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        />
+        tools:ignore="MissingConstraints" />
     <LinearLayout
         android:layout_width="320dp"
         android:orientation="horizontal"
@@ -33,6 +32,7 @@
         android:id="@+id/leniar1"
         app:layout_constraintTop_toBottomOf="@+id/marqueeTextq"
         tools:ignore="MissingConstraints">
+
         <ImageView
             android:id="@+id/image1"
             android:layout_width="wrap_content"
@@ -43,6 +43,7 @@
             />
 
     </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +68,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:layout_width="10dp"
         android:layout_marginTop="10dp"
@@ -140,14 +142,13 @@
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_height="wrap_content">
+
     <AutoCompleteTextView
         android:id="@+id/serchviews1"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-
         android:padding="5dp"
         android:layout_weight=".3"
-
         android:hint="Search..."
         android:importantForAutofill="no"
         android:textSize="12dp"
@@ -162,17 +163,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1.7"
-
-
         android:background="@drawable/btnshape"
         android:src="@drawable/search"
         app:layout_constraintLeft_toRightOf="@+id/serchviews1"
         app:layout_constraintTop_toBottomOf="@+id/constraint1"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"/>
 
-    </ImageButton>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -194,11 +193,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/activity_internet_off"
-        android:visibility="gone"></include>
+        android:visibility="gone"/>
     <include layout="@layout/logindesign"
-        android:visibility="gone"></include>
+        android:visibility="gone"/>
     <include layout="@layout/activity_request_otp"
-        android:visibility="gone"></include>
+        android:visibility="gone"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navfirst_view1"
         android:layout_marginTop="10dp"
@@ -209,7 +209,5 @@
         app:itemBackground="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/login_nav_menu"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

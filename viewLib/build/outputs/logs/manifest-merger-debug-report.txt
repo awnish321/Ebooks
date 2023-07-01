@@ -1,57 +1,57 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:1:1-25:12
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:1:1-25:12
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:1:1-25:12
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:1:1-25:12
 	package
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:2:5-33
-		INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-		INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:2:5-33
+		INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:4:5-30
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:4:5-30
 	xmlns:android
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:1:11-69
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:1:11-69
 	android:versionCode
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:3:5-28
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:3:5-28
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:6:5-79
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:6:22-77
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:6:22-77
 uses-permission#android.permission.CAMERA
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:7:5-65
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:7:5-65
 	android:name
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:7:22-62
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:7:22-62
 uses-permission#android.permission.STORAGE
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:8:5-66
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:8:5-66
 	android:name
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:8:22-63
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:8:22-63
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:9:5-81
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:9:5-81
 	android:name
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:9:22-78
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:9:22-78
 application
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:11:5-23:19
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:11:5-23:19
 	android:allowBackup
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:11:18-44
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:11:18-44
 activity#com.radaee.reader.VideoView
-ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:15:11-19:20
+ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:15:11-19:20
 	android:configChanges
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:17:13-74
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:17:13-74
 	android:theme
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:18:13-60
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:18:13-60
 	android:name
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml:16:13-55
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml:16:13-55
 uses-sdk
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-		INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-		ADDED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
-		INJECTED from D:\vishal_at_home\5-4-2023\Ebooks\viewLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+		ADDED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml
+		INJECTED from E:\Awnish\EbooksMyChange\viewLib\src\main\AndroidManifest.xml

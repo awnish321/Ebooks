@@ -51,7 +51,6 @@ public class SplashScreen extends AppCompatActivity {
     int sVersionCode;
     String Login_UserID,Login_Value ;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +83,8 @@ public class SplashScreen extends AppCompatActivity {
                 isInternetPresent = cd.isConnectingToInternet();
                 if (isInternetPresent)
                 {
-                    if(Login_UserID.isEmpty()) {
+                    if(Login_UserID.isEmpty())
+                    {
                         //	Toast.makeText(SplashScreen.this, "Login_Blank--"+Login_UserID, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
                         startActivity(intent);
@@ -132,7 +132,7 @@ public class SplashScreen extends AppCompatActivity {
             }).show();
 }
 
-@Override
+    @Override
     public void onBackPressed() {
         this.finish();
         super.onBackPressed();

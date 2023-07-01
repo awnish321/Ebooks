@@ -8,6 +8,4 @@
     tools:context=".NotificationAcount"
     android:orientation="vertical">
 
-
-
 </WebView>

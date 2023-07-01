@@ -163,10 +163,11 @@ public class Dashboard extends AppCompatActivity {
             }
         }
     }
-    private void GetAndroidPermission() {
-        if (ActivityCompat.checkSelfPermission(Dashboard.this, permissionsRequired[0]) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(Dashboard.this, permissionsRequired[0])
-            ) {
+    private void GetAndroidPermission()
+    {
+        if (ActivityCompat.checkSelfPermission(Dashboard.this, permissionsRequired[0]) != PackageManager.PERMISSION_GRANTED)
+        {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(Dashboard.this, permissionsRequired[0])) {
                 //Show Information about why you need the permission
                 ActivityCompat.requestPermissions(Dashboard.this, permissionsRequired, PERMISSION_CALLBACK_CONSTANT);
 
@@ -180,7 +181,8 @@ public class Dashboard extends AppCompatActivity {
             SharedPreferences.Editor editor = permissionStatus.edit();
             editor.putBoolean(permissionsRequired[0], true);
             editor.commit();
-        } else {
+        } else
+        {
             //You already have the permission, just go ahead.
             proceedAfterPermission();
         }

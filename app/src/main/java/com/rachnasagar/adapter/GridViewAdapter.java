@@ -37,7 +37,6 @@ public class GridViewAdapter extends BaseAdapter {
     	return position;
 	  }
 
-
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -61,27 +60,21 @@ public class GridViewAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		
 		 View grid;
-         LayoutInflater inflater = (LayoutInflater) context
-             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
          
-         if (convertView == null) {
-        	 
+         if (convertView == null)
+		 {
              grid = new View(context);
              grid = inflater.inflate(R.layout.gridview, null);
              TextView textView = (TextView) grid.findViewById(R.id.textView1);
-
 			 vimSetter = new VinSetterGetter();
 			 vimSetter = setterGetters.get(position);
-             
-        
-          //   ImageView imageView = (ImageView)grid.findViewById(R.id.imageView1);
              textView.setText(vimSetter.getCategoryName());
-             
            //  imageView.setImageResource(Imageid[position]);
-         } else {
+         }
+		 else {
              grid = (View) convertView;
          }
-
          return grid;
     }
 

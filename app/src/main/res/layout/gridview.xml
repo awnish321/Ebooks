@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center_horizontal" >
@@ -16,12 +17,13 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="-5dp"
         android:text="textchange"
         android:textColor="#dc3a3a"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold" />
     
    </LinearLayout>
+
 </RelativeLayout>

@@ -90,30 +90,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FirstBottomPage extends AppCompatActivity {
-ProgressBar progressBar;
-    WebView webView,webView1;
-    TextView txtMarquee,yourname;
+    ProgressBar progressBar;
+    WebView webView, webView1;
+    TextView txtMarquee, yourname;
     ProgressDialog progressDialog;
     BottomNavigationView bottomNavigationView;
     Boolean isInternetPresent = false;
     ConnectionDetector cd;
-    LinearLayout linearLayout,linearLayout1;
-    Button accountlogout_btn,account_order,account_address,account_profile,account_wishlist;
+    LinearLayout linearLayout, linearLayout1;
+    Button accountlogout_btn, account_order, account_address, account_profile, account_wishlist;
     String Device_Id, Mob_Id, Mob_Product, Mob_Brand, Mob_Manufacture, Mob_Model;
     String Uri;
     //private Button button;
-    DownloadManager manager=null;
-    private long lastDownload=-1L;
+    DownloadManager manager = null;
+    private long lastDownload = -1L;
     File destinationDir;
     ProgressHUD dialog;
     String message = "Please Wait....";
-    String s60,s61,s70,s71,s72,s73,s80,s81,s82,s83,s84,s90,s91,s92,s93,s94,Menu_Status,Menu_Msg,Menu_Data,Menu_Title,Menu_Id,Menu_Url;
-    String tok_status,tok_userid,tok_apptoken,tok_name,tok_mobile,tok_address,tok_email,tok_url,tok_msg;
+    String s60, s61, s70, s71, s72, s73, s80, s81, s82, s83, s84, s90, s91, s92, s93, s94, Menu_Status, Menu_Msg, Menu_Data, Menu_Title, Menu_Id, Menu_Url;
+    String tok_status, tok_userid, tok_apptoken, tok_name, tok_mobile, tok_address, tok_email, tok_url, tok_msg;
     SharedPreferences.Editor editor;
     BottomNavigationMenuView menuView;
     BottomNavigationItemView itemView;
     String num = " ";
-    TextView textViewnotification,textViewnotification1;
+    TextView textViewnotification, textViewnotification1;
     View messageBadgeView;
     TextView notificationBadge;
     AutoCompleteTextView searchedit;
@@ -121,13 +121,13 @@ ProgressBar progressBar;
     ArrayList<String> mylist;
     Intent jget;
     String valueget;
-    String Login_UserID,Login_Value,nametok,userid,username;
+    String Login_UserID, Login_Value, nametok, userid, username;
     SharedPreferences preferences;
-    String holdvalue,get_value;
-    ImageView cartimage,logoclick;
+    String holdvalue, get_value;
+    ImageView cartimage, logoclick;
     ImageButton search_image_btn;
     Intent get_intent;
-    String mCurrentUrl="";
+    String mCurrentUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,14 +152,13 @@ ProgressBar progressBar;
         cartimage = findViewById(R.id.image12);
         logoclick = findViewById(R.id.image1);
         search_image_btn = findViewById(R.id.searchbtn);
-        account_order=findViewById(R.id.accountorder);
-        account_address=findViewById(R.id.accountaddress);
-        account_profile=findViewById(R.id.accountprofile);
-        account_wishlist=findViewById(R.id.accountwishlist);
+        account_order = findViewById(R.id.accountorder);
+        account_address = findViewById(R.id.accountaddress);
+        account_profile = findViewById(R.id.accountprofile);
+        account_wishlist = findViewById(R.id.accountwishlist);
         yourname.setMovementMethod(LinkMovementMethod.getInstance());
         txtMarquee.setSelected(true);
-        Device_Id = Settings.Secure.getString(getApplicationContext().getContentResolver(),
-                Settings.Secure.ANDROID_ID);
+        Device_Id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
         Mob_Id = Build.ID;
         Mob_Product = Build.PRODUCT;
         Mob_Brand = Build.BRAND;
@@ -172,7 +171,6 @@ ProgressBar progressBar;
         nametok = preferences.getString("App_Token", "");
         userid = preferences.getString("UserId", "");
         username = preferences.getString("Name", "");
-
 
         GetTokenOnly();
         MobileDeviceUpdates11();
@@ -194,7 +192,7 @@ ProgressBar progressBar;
             nametok = nametok;  /* Edit the value here*/
         }
 
-        progressBar=new ProgressBar(FirstBottomPage.this);
+        progressBar = new ProgressBar(FirstBottomPage.this);
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
                 progressBar.setProgress(progress);
@@ -208,10 +206,9 @@ ProgressBar progressBar;
         webView.setDownloadListener(new DownloadListener() {
 
             @Override
-            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                DownloadManager.Request request = new DownloadManager.Request(
-                        android.net.Uri.parse(url));
-
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength)
+            {
+                DownloadManager.Request request = new DownloadManager.Request(android.net.Uri.parse(url));
                 request.allowScanningByMediaScanner();
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED); //Notify client once download is completed!
                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Name of your downloadble file goes here, example: Mathematics II ");
@@ -223,6 +220,7 @@ ProgressBar progressBar;
         });
 
         yourname.setText(username);
+
         yourname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,7 +232,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");//63dd433b5c8e1df066edb8ee49b65ff4500afec4cd934
-                    startWebView("https://www.rachnasagar.in/mobile/Profile/myprofile?token=" +nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/Profile/myprofile?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -244,10 +242,9 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/Profile/myprofile?token="+nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/Profile/myprofile?token=" + nametok + "&userid=" + userid);
             }
         });
-
         account_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -259,7 +256,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");
-                    startWebView("https://www.rachnasagar.in/mobile/Profile/orders?token=" + nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/Profile/orders?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -269,12 +266,10 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/Profile/orders?token=" + nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/Profile/orders?token=" + nametok + "&userid=" + userid);
                 Log.d("click111", "innnn");
             }
         });
-
-
         account_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -286,7 +281,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");
-                    startWebView("https://www.rachnasagar.in/mobile/Profile/account?token=" + nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/Profile/account?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -296,11 +291,10 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/Profile/account?token=" + nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/Profile/account?token=" + nametok + "&userid=" + userid);
                 Log.d("click111", "innnn");
             }
         });
-
         account_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -313,7 +307,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");
-                    startWebView("https://www.rachnasagar.in/mobile/Profile/address?token=" + nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/Profile/address?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -323,7 +317,7 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/Profile/address?token=" + nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/Profile/address?token=" + nametok + "&userid=" + userid);
                 Log.d("click111", "innnn");
             }
         });
@@ -338,7 +332,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");
-                    startWebView("https://www.rachnasagar.in/mobile/Profile/wishlist?token=" + nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/Profile/wishlist?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -348,11 +342,10 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/Profile/wishlist?token=" + nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/Profile/wishlist?token=" + nametok + "&userid=" + userid);
                 Log.d("click111", "innnn");
             }
         });
-
         search_image_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -376,7 +369,6 @@ ProgressBar progressBar;
                 }
                 //startWebView(s83);
 
-
             }
         });
         logoclick.setOnClickListener(new View.OnClickListener() {
@@ -390,7 +382,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");//63dd433b5c8e1df066edb8ee49b65ff4500afec4cd934
-                    startWebView("https://www.rachnasagar.in/mobile?token="+nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -400,14 +392,14 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile?token=" + nametok+"userid="+userid+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile?token=" + nametok + "userid=" + userid + "&userid=" + userid);
                 Log.d("click111", "innnn");
             }
         });
         cartimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // notificationBadge.setVisibility(View.GONE);
+                // notificationBadge.setVisibility(View.GONE);
                 fetch();
                 GetTokenOnly();
                 cartfetch();
@@ -418,7 +410,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");
-                    startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -428,7 +420,7 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok + "&userid=" + userid);
                 Log.d("click111", "innnn");
             }
         });
@@ -461,8 +453,6 @@ ProgressBar progressBar;
             }
 
         });
-
-
         notificationBadge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -478,7 +468,7 @@ ProgressBar progressBar;
                     webView1.setVisibility(View.GONE);
                     webView.setVisibility(View.VISIBLE);
                     Log.d("awaaa1", "innnn");
-                    startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok+"&userid="+userid);
+                    startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok + "&userid=" + userid);
 
                 } else {
                     Log.d("awaa2", "innnn");
@@ -488,7 +478,7 @@ ProgressBar progressBar;
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
                 }
-                startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok+"&userid="+userid);
+                startWebView("https://www.rachnasagar.in/mobile/orderDetail?token=" + nametok + "&userid=" + userid);
             }
         });
         accountlogout_btn.setOnClickListener(new View.OnClickListener() {
@@ -499,7 +489,6 @@ ProgressBar progressBar;
             }
         });
 
-
         menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
         itemView = (BottomNavigationItemView) menuView.getChildAt(2);
         messageBadgeView = LayoutInflater.from(this).inflate(R.layout.custom_layout, menuView, false);
@@ -508,9 +497,7 @@ ProgressBar progressBar;
         textViewnotification.setVisibility(View.VISIBLE);
         textViewnotification.setText(num);
         itemView.addView(messageBadgeView);
-
         bottomNavigationView.setItemIconTintList(null);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -560,7 +547,7 @@ ProgressBar progressBar;
                             linearLayout1.setVisibility(View.GONE);
                             linearLayout.setVisibility(View.GONE);
                             webView.setVisibility(View.VISIBLE);
-                            startWebView("https://www.rachnasagar.in/mobile/notifications?deviceId="+Device_Id+"&userId="+userid+"&token="+nametok);
+                            startWebView("https://www.rachnasagar.in/mobile/notifications?deviceId=" + Device_Id + "&userId=" + userid + "&token=" + nametok);
                             //startWebView("https://www.rachnasagar.in/mobile/notifications?token=" + nametok);
                         } else {
                             Log.d("awaa2345", "innnn");
@@ -599,14 +586,13 @@ ProgressBar progressBar;
         webSettings.setJavaScriptEnabled(true);
         webView.setWebViewClient(new MyCustomWebViewClient1());
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        System.out.println("vishal"+s80);
-
+        System.out.println("vishal" + s80);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        System.out.println("mmmm"+"ayaaaa");
+        System.out.println("mmmm" + "ayaaaa");
 
         cartfetch();
         GetTokenOnly();
@@ -616,11 +602,12 @@ ProgressBar progressBar;
         @Override
         public void onLoadResource(WebView view, String url10) {
             System.out.println("mCurrentUrl11=" + url10);
-            if(url10.contentEquals("https://www.rachnasagar.in/api/cart/add")){
-                System.out.println("uuuu="+url10);
+            if (url10.contentEquals("https://www.rachnasagar.in/api/cart/add")) {
+                System.out.println("uuuu=" + url10);
             }
             super.onLoadResource(view, url10);
         }
+
         @Override
         public void onPageStarted(WebView webview, String url11, Bitmap favicon) {
             System.out.println("mCurrentUrl2=" + url11);
@@ -632,6 +619,7 @@ ProgressBar progressBar;
                 progressDialog.show();
             }
         }
+
         @Override
         public void onPageFinished(WebView view, String url5) {
             super.onPageFinished(view, url5);
@@ -646,6 +634,7 @@ ProgressBar progressBar;
                 exception.printStackTrace();
             }
         }
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url2) {
             mCurrentUrl = url2;
@@ -674,51 +663,50 @@ ProgressBar progressBar;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void weballsetting(){
-    webView.getSettings().setJavaScriptEnabled(true);
-    webView.requestFocus();
-    webView.getSettings().setLightTouchEnabled(true);
-    webView.getSettings().setJavaScriptEnabled(true);
-    webView.getSettings().setGeolocationEnabled(true);
-    webView.setVerticalScrollBarEnabled(false);
-    webView.setHorizontalScrollBarEnabled(false);
-    webView.setSoundEffectsEnabled(true);
-    WebSettings webSettings = webView.getSettings();
-    webSettings.setJavaScriptEnabled(true);
-    webSettings.setBuiltInZoomControls(true);
-    webView.requestFocusFromTouch();
+    public void weballsetting() {
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.requestFocus();
+        webView.getSettings().setLightTouchEnabled(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setGeolocationEnabled(true);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setSoundEffectsEnabled(true);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setBuiltInZoomControls(true);
+        webView.requestFocusFromTouch();
 
-    webView.setWebChromeClient(new WebChromeClient());
-    webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
-    webView.getSettings().setUseWideViewPort(true);
-    webView.setWebViewClient(new WebViewClient());
-    webView.getWebChromeClient();
+        webView.setWebChromeClient(new WebChromeClient());
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.getWebChromeClient();
     }
 
-    public  void fetchsearchview(){
-        RequestQueue requestQueue= Volley.newRequestQueue(FirstBottomPage.this);
-        StringRequest stringRequest=new StringRequest(Config2.DATA_URL, new Response.Listener<String>() {
+    public void fetchsearchview() {
+        RequestQueue requestQueue = Volley.newRequestQueue(FirstBottomPage.this);
+        StringRequest stringRequest = new StringRequest(Config2.DATA_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("pptt0",response);
+                Log.d("pptt0", response);
                 SHOWJSON3(response);
                 if (s80.contentEquals("true")) {
-                    Log.d("pptt00",response);
+                    Log.d("pptt00", response);
 //                    webView.loadUrl(s83);
-                }else{
-                   // Toast.makeText(FirstBottomPage.this, "Not true", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Toast.makeText(FirstBottomPage.this, "Not true", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-               // Toast.makeText(FirstBottomPage.this, "data not fetch...", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(FirstBottomPage.this, "data not fetch...", Toast.LENGTH_SHORT).show();
             }
         });
 
         requestQueue.add(stringRequest);
     }
-
 
     public void SHOWJSON3(String respone) {
 
@@ -731,7 +719,7 @@ ProgressBar progressBar;
                 s81 = jb1.getString(Config2.DATA_Product);
                 s82 = jb1.getString(Config2.DATA_message);
                 s83 = jb1.getString(Config2.DATA_result2);
-                Log.d("allll",s83);
+                Log.d("allll", s83);
                 if (jb1.has("Product_Title")) {
                     al.add(jb1.getString("Product_Title"));
                 }
@@ -739,16 +727,15 @@ ProgressBar progressBar;
                 searchedit.setAdapter(adapter);
                 searchedit.setThreshold(0);
             }
-        } catch(JSONException e){
+        } catch (JSONException e) {
         }
 
     }
 
-
     public void GetTokenOnly() {
         userid = preferences.getString("UserId", "");
         RequestQueue queue = Volley.newRequestQueue(this);
-        String urlmanuals = "https://rachnasagar.in/rsplws/userDetails.php?userId="+userid+"&action=userDetails&deviceId="+Device_Id;
+        String urlmanuals = "https://rachnasagar.in/rsplws/userDetails.php?userId=" + userid + "&action=userDetails&deviceId=" + Device_Id;
         Log.d("urlmanuals", urlmanuals);
         StringRequest postRequest = new StringRequest(Request.Method.POST, urlmanuals,
                 new Response.Listener<String>() {
@@ -764,28 +751,27 @@ ProgressBar progressBar;
                                 //String result = object.getString("Status");
                                 //Toast.makeText(Login.this, object.get("Name")+" "+object.get("UserId"), Toast.LENGTH_SHORT).show();
                                 tok_status = object.get("status").toString();
-                                System.out.println("tok_status="+tok_status);
+                                System.out.println("tok_status=" + tok_status);
                                 tok_apptoken = object.get("App_Token").toString();
-                                System.out.println("tok_appss="+tok_apptoken);
+                                System.out.println("tok_appss=" + tok_apptoken);
                                 if (tok_status.trim().equalsIgnoreCase("true")) {
-                                    System.out.println("tok_appss1="+tok_status);
+                                    System.out.println("tok_appss1=" + tok_status);
                                     tok_userid = object.get("UserId").toString();
-                                    System.out.println("tok_appss2="+tok_userid);
+                                    System.out.println("tok_appss2=" + tok_userid);
                                     preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
-                                    System.out.println("tok_appss3="+preferences);
+                                    System.out.println("tok_appss3=" + preferences);
                                     editor = preferences.edit();
                                     editor.putString("App_Token", tok_apptoken);
-                                    System.out.println("tok_appss4="+tok_apptoken);
+                                    System.out.println("tok_appss4=" + tok_apptoken);
                                     editor.commit();
 
-                                }else{
+                                } else {
                                     Toast.makeText(FirstBottomPage.this, tok_msg, Toast.LENGTH_SHORT).show();
                                 }
                                 tok_msg = object.get("msg").toString();
                                 tok_url = object.get("URL").toString();
                                 tok_userid = object.get("UserId").toString();
                                 tok_name = object.get("Name").toString();
-
 
 
                             }
@@ -798,8 +784,6 @@ ProgressBar progressBar;
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
-
 
 
                     }
@@ -819,18 +803,16 @@ ProgressBar progressBar;
         queue.add(postRequest);
     }
 
-
     private void LogOutService1() {
 
         preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
+        SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.commit();
         RequestQueue queue = Volley.newRequestQueue(FirstBottomPage.this);
-        String urlmanual = Networking.url+"logout.php?";
+        String urlmanual = Networking.url + "logout.php?";
         StringRequest postRequest = new StringRequest(Request.Method.POST, urlmanual,
-                new Response.Listener<String>()
-                {
+                new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         // response
@@ -845,31 +827,30 @@ ProgressBar progressBar;
                                 object = new JSONObject(array.getString(i).toString());
                                 String Status = object.getString("Status");
                                 String Msg = object.getString("msg");
-                                System.out.println("dddssss"+"    "+Status+"    "+Msg);
-                                if(Status.equalsIgnoreCase("true"))
-                                {
-                                    if(Login_Value.equalsIgnoreCase("1")) {
+                                System.out.println("dddssss" + "    " + Status + "    " + Msg);
+                                if (Status.equalsIgnoreCase("true")) {
+                                    if (Login_Value.equalsIgnoreCase("1")) {
                                         //Toast.makeText(getApplicationContext(), "Logout Sucessfully.", Toast.LENGTH_SHORT).show();
                                         Intent intent1 = new Intent(FirstBottomPage.this, LoginActivity.class);
                                         startActivity(intent1);
                                         finish();
                                     }
-                                    if(Login_Value.equalsIgnoreCase("2")) {
+                                    if (Login_Value.equalsIgnoreCase("2")) {
                                         //	Toast.makeText(getApplicationContext(), "Logout Sucessfully.", Toast.LENGTH_SHORT).show();
                                         Intent intent1 = new Intent(FirstBottomPage.this, LoginActivity.class);
                                         startActivity(intent1);
                                         finish();
-                                        try{
+                                        try {
                                             // LoginManager.getInstance().logOut();
 
-                                        }catch (Exception e){}
+                                        } catch (Exception e) {
+                                        }
 
                                     }
-                                    if(Login_Value.equalsIgnoreCase("3")) {
+                                    if (Login_Value.equalsIgnoreCase("3")) {
 
                                     }
-                                }
-                                else{
+                                } else {
                                     //Toast.makeText(FirstBottomPage.this, Msg, Toast.LENGTH_SHORT).show();
                                 }
 
@@ -880,8 +861,7 @@ ProgressBar progressBar;
                         }
                     }
                 },
-                new Response.ErrorListener()
-                {
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         LogOutService1();
@@ -890,7 +870,7 @@ ProgressBar progressBar;
         ) {
             @Override
             protected HashMap<String, String> getParams() {
-                HashMap<String, String>  params = new HashMap<String, String>();
+                HashMap<String, String> params = new HashMap<String, String>();
                 params.put("userId", Login_UserID);
                 params.put("action", "logout");
                 return params;
@@ -899,29 +879,30 @@ ProgressBar progressBar;
         queue.add(postRequest);
 
     }
+
     public void somedata() {
         cd = new ConnectionDetector(FirstBottomPage.this);
-        preferences =getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         Login_UserID = preferences.getString("Login_UserId", "");
-        Login_Value =  preferences.getString("Login_Value", "");
-        System.out.println("Userid"+" "+Login_UserID);
+        Login_Value = preferences.getString("Login_Value", "");
+        System.out.println("Userid" + " " + Login_UserID);
         isInternetPresent = cd.isConnectingToInternet();
         if (isInternetPresent) {
-            if(Login_UserID.isEmpty()) {
+            if (Login_UserID.isEmpty()) {
                 //	Toast.makeText(SplashScreen.this, "Login_Blank--"+Login_UserID, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(FirstBottomPage.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
 
-            }else{
+            } else {
             }
-        }else{
+        } else {
             //Misc.showAlertDialog(SplashScreen.this, "No Internet Connection", "You don't have internet connection.", false);
             Aleart();
         }
     }
 
-    public void Aleart(){
+    public void Aleart() {
         new AlertDialog.Builder(FirstBottomPage.this)
                 .setMessage("You don't have internet connection")
                 .setTitle("No Internet Connection")
@@ -930,27 +911,29 @@ ProgressBar progressBar;
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                       finish();
+                        finish();
                     }
                 }).show();
     }
-    public void trick(){
-    if (isInternetPresent) {
-        GetTokenOnly();
-        linearLayout1.setVisibility(View.GONE);
-        linearLayout.setVisibility(View.GONE);
-        webView.setVisibility(View.VISIBLE);
-        weballsetting();
-        Log.d("vvv","onn");
-        startWebView("https://www.rachnasagar.in/mobile/?token="+nametok+"&userid="+userid);
-        Log.d("vvv1","onn");
 
-    } else {
-        linearLayout1.setVisibility(View.GONE);
-        webView.setVisibility(View.GONE);
-        linearLayout.setVisibility(View.VISIBLE);
+    public void trick() {
+        if (isInternetPresent) {
+            GetTokenOnly();
+            linearLayout1.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+            weballsetting();
+            Log.d("vvv", "onn");
+            startWebView("https://www.rachnasagar.in/mobile/?token=" + nametok + "&userid=" + userid);
+            Log.d("vvv1", "onn");
+
+        } else {
+            linearLayout1.setVisibility(View.GONE);
+            webView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.VISIBLE);
+        }
     }
-}
+
     public void MobileDeviceUpdates11() {
         System.out.println("fiiiiii" + "    " + "aaStatus");
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -1010,9 +993,9 @@ ProgressBar progressBar;
         queue.add(postRequest);
     }
 
-    private void FetchAccountDetails(){
-        RequestQueue requestQueue= Volley.newRequestQueue(FirstBottomPage.this);
-        StringRequest stringRequest=new StringRequest(Config5.DATA_URL+Device_Id, new Response.Listener<String>() {
+    private void FetchAccountDetails() {
+        RequestQueue requestQueue = Volley.newRequestQueue(FirstBottomPage.this);
+        StringRequest stringRequest = new StringRequest(Config5.DATA_URL + Device_Id, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("Respons7771=", response);
@@ -1029,24 +1012,24 @@ ProgressBar progressBar;
 
     }
 
-    public void SHOWJSON5(String respone){
+    public void SHOWJSON5(String respone) {
         try {
             Log.d("Respons7772=", respone);
 
-            JSONArray jr = new  JSONArray(respone);
-            System.out.println("Respons7773="+jr);
+            JSONArray jr = new JSONArray(respone);
+            System.out.println("Respons7773=" + jr);
             JSONObject jb1 = jr.getJSONObject(0);
-            System.out.println("Respons7774="+jb1);
+            System.out.println("Respons7774=" + jb1);
             Menu_Status = jb1.getString(Config5.DATA_Status);
-            System.out.println("Respons7775="+Menu_Status);
+            System.out.println("Respons7775=" + Menu_Status);
             Menu_Msg = jb1.getString(Config5.DATA_msg);
-            System.out.println("Respons7776="+Menu_Msg);
+            System.out.println("Respons7776=" + Menu_Msg);
             Menu_Data = jb1.getString(Config5.DATA_data);
             System.out.println("Respons7777=" + Menu_Data);
             JSONArray array;
             array = new JSONArray(Menu_Data);
             JSONObject jb2 = new JSONObject();
-            System.out.println("Respons77731="+jb2.toString());
+            System.out.println("Respons77731=" + jb2.toString());
             for (int i = 0; i < 3; i++) {
                 jb2 = array.getJSONObject(i);
                 System.out.println("Respons777yyy=" + jb2);
@@ -1061,23 +1044,23 @@ ProgressBar progressBar;
                 System.out.println("Respons777yyy=" + Menu_Url);
 
             }
-        }catch (JSONException e){
+        } catch (JSONException e) {
 
         }
-        if(Menu_Id.contentEquals("1")){
+        if (Menu_Id.contentEquals("1")) {
 
-        } if(Menu_Id.contentEquals("2")){
+        }
+        if (Menu_Id.contentEquals("2")) {
 
-        }if(Menu_Id.contentEquals("3")){
+        }
+        if (Menu_Id.contentEquals("3")) {
 
         }
     }
 
-
-
-    public  void fetch_notification_status(){
-        RequestQueue requestQueue= Volley.newRequestQueue(FirstBottomPage.this);
-        StringRequest stringRequest=new StringRequest(Config4.DATA_URL+"deviceId="+Device_Id+"notificationId="+1+"userId="+userid, new Response.Listener<String>() {
+    public void fetch_notification_status() {
+        RequestQueue requestQueue = Volley.newRequestQueue(FirstBottomPage.this);
+        StringRequest stringRequest = new StringRequest(Config4.DATA_URL + "deviceId=" + Device_Id + "notificationId=" + 1 + "userId=" + userid, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("Responsestatuss=", response);
@@ -1094,18 +1077,18 @@ ProgressBar progressBar;
 
     }
 
-    public void SHOWJSON4(String respone){
+    public void SHOWJSON4(String respone) {
         try {
             Log.d("Responsestatus", respone);
 
-            JSONArray jr = new  JSONArray(respone);
+            JSONArray jr = new JSONArray(respone);
             JSONObject jb1 = jr.getJSONObject(0);
             s60 = jb1.getString(Config4.DATA_Status);
             s61 = jb1.getString(Config4.DATA_msg);
             Log.d("Responsestatus0=", s60);
             Log.d("Responsestatus1=", s60);
 
-        }catch (JSONException e){
+        } catch (JSONException e) {
 
         }
 
@@ -1115,9 +1098,9 @@ ProgressBar progressBar;
         e25.setText(s94);*/
     }
 
-    public  void fetch(){
-        RequestQueue requestQueue= Volley.newRequestQueue(FirstBottomPage.this);
-        StringRequest stringRequest=new StringRequest(Config.DATA_URL+Device_Id, new Response.Listener<String>() {
+    public void fetch() {
+        RequestQueue requestQueue = Volley.newRequestQueue(FirstBottomPage.this);
+        StringRequest stringRequest = new StringRequest(Config.DATA_URL + Device_Id, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("TotalResponse11111=", response);
@@ -1127,21 +1110,21 @@ ProgressBar progressBar;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-               // Toast.makeText(FirstBottomPage.this, "data not fetch...", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(FirstBottomPage.this, "data not fetch...", Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(stringRequest);
 
     }
 
-    public void SHOWJSON(String respone){
+    public void SHOWJSON(String respone) {
         try {
             Log.d("TotalResponse1111", respone);
 
-            JSONArray jr = new  JSONArray(respone);
+            JSONArray jr = new JSONArray(respone);
             JSONObject jb1 = jr.getJSONObject(0);
             s90 = jb1.getString(Config.DATA_Status);
-            if(s90.contentEquals("0")){
+            if (s90.contentEquals("0")) {
                 Log.d("TotalResponse1110", s90);
                 textViewnotification.setVisibility(View.GONE);
             }
@@ -1154,21 +1137,21 @@ ProgressBar progressBar;
             Log.d("TotalResponse1113", s92);
             Log.d("TotalResponse1114", s93);
             Log.d("TotalResponse1115", s94);
-        }catch (JSONException e){
+        } catch (JSONException e) {
 
         }
-        if(s90.contentEquals("1") ||s90.contentEquals("2")||s90.contentEquals("3")||s90.contentEquals("4")||s90.contentEquals("5")||s90.contentEquals("6")||s90.contentEquals("7")||s90.contentEquals("8")) {
+        if (s90.contentEquals("1") || s90.contentEquals("2") || s90.contentEquals("3") || s90.contentEquals("4") || s90.contentEquals("5") || s90.contentEquals("6") || s90.contentEquals("7") || s90.contentEquals("8")) {
             textViewnotification.setText(s93);
-        }else{
+        } else {
             textViewnotification.setVisibility(View.GONE);
         }
 
-        }
+    }
 
-        public void cartfetch(){
+    public void cartfetch() {
         userid = preferences.getString("UserId", "");
-        RequestQueue requestQueue= Volley.newRequestQueue(FirstBottomPage.this);
-        StringRequest stringRequest=new StringRequest(Config1.DATA_URL+userid, new Response.Listener<String>() {
+        RequestQueue requestQueue = Volley.newRequestQueue(FirstBottomPage.this);
+        StringRequest stringRequest = new StringRequest(Config1.DATA_URL + userid, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("RResponse22200", response);
@@ -1184,11 +1167,12 @@ ProgressBar progressBar;
         requestQueue.add(stringRequest);
 
     }
+
     // {"result":[{"PASSWORD":null,"NAME":null,"PHONE":null,"QUALIFICATION":null}]}
-    public void SHOWJSON1(String respone){
+    public void SHOWJSON1(String respone) {
         try {
             Log.d("RResponse22200", respone);
-            JSONArray jr = new  JSONArray(respone);
+            JSONArray jr = new JSONArray(respone);
             JSONObject jb1 = jr.getJSONObject(0);
             s80 = jb1.getString(Config1.DATA_Status1);
 
@@ -1202,22 +1186,22 @@ ProgressBar progressBar;
             Log.d("RResponse222004", s83);
 
 
-        }catch (JSONException e){
+        } catch (JSONException e) {
 
         }
 
-        if(s80.contentEquals("0")){
+        if (s80.contentEquals("0")) {
             notificationBadge.setVisibility(View.GONE);
-        }else if(s80.contentEquals("1")){
+        } else if (s80.contentEquals("1")) {
             notificationBadge.setText(s82);
         }
 
     }
 
-//[{"status":"true","Product_Title":"Together with Sunehri Dhoop for Class 1","msg":"Product Details","URL":"https://www.rachnasagar.in/mobile/cbse/together-with-sunehri-dhoop-for-class-1?type=p_book&id=937"}]
-    public void searchForResults(){
-        RequestQueue requestQueue= Volley.newRequestQueue(FirstBottomPage.this);
-        StringRequest stringRequest=new StringRequest(Config2.DATA_URL, new Response.Listener<String>() {
+    //[{"status":"true","Product_Title":"Together with Sunehri Dhoop for Class 1","msg":"Product Details","URL":"https://www.rachnasagar.in/mobile/cbse/together-with-sunehri-dhoop-for-class-1?type=p_book&id=937"}]
+    public void searchForResults() {
+        RequestQueue requestQueue = Volley.newRequestQueue(FirstBottomPage.this);
+        StringRequest stringRequest = new StringRequest(Config2.DATA_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("RRResponse11100", response);
@@ -1234,11 +1218,11 @@ ProgressBar progressBar;
 
     }
 
-    public void SHOWJSON2(String respone){
+    public void SHOWJSON2(String respone) {
         try {
             Log.d("RRResponse1111", respone);
-           // for(int i;i.get)
-            JSONArray jr = new  JSONArray(respone);
+            // for(int i;i.get)
+            JSONArray jr = new JSONArray(respone);
             JSONObject jb1 = jr.getJSONObject(0);
             s70 = jb1.getString(Config2.DATA_Status2);
             s71 = jb1.getString(Config2.DATA_Product);
@@ -1249,7 +1233,7 @@ ProgressBar progressBar;
             Log.d("RRResponse1113", s72);
             Log.d("RRResponse1114", s73);
 
-        }catch (JSONException e){
+        } catch (JSONException e) {
 
         }
         //notificationBadge.setText(s82);
@@ -1298,7 +1282,6 @@ ProgressBar progressBar;
 
 
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void AllBooks() {
@@ -2068,7 +2051,7 @@ ProgressBar progressBar;
             startWebView("https://www.rachnasagar.in/mobile/cbse/together-with-cbse-class-10-english-language-and-literature-hindi-b-mathematics-standard-set-of-3-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2745");
         } else if (holdvalue.contentEquals("Together With CBSE Class 10 English Language And Literature,Hindi B, Mathematics(Standard) (Set of 3 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/cbse/together-with-cbse-class-10-english-language-and-literature-hindi-b-mathematics-standard-set-of-3-books-question-bank-exam-2022-23-based-on-the-latest-syllabu?type=p_book&id=2746");
-        }else if (holdvalue.contentEquals("Together With CBSE Class 10 English Language &Literature Pull Out Worksheets, French, Mathematics (Basic) (Set of 3 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
+        } else if (holdvalue.contentEquals("Together With CBSE Class 10 English Language &Literature Pull Out Worksheets, French, Mathematics (Basic) (Set of 3 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/cbse/together-with-cbse-class-10-english-language-and-literature-pull-out-worksheets-french-mathematics-basic-set-of-3-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2751");
         } else if (holdvalue.contentEquals("Together With CBSE Question Bank Class 9 English Communicative Pull Out Worksheet, French, Mathematics Exam 2023 (Study Material) Solved Paper Based on Latest Pattern")) {
             startWebView("https://www.rachnasagar.in/mobile/cbse/together-with-cbse-question-bank-class-9-english-communicative-pull-out-worksheet-french-mathematics-exam-2023-study-material-solved-paper-based-on-latest-pattern?type=p_book&id=2752");
@@ -2080,7 +2063,7 @@ ProgressBar progressBar;
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-english-literature-hindi-biology-chemistry-mathematics-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2755");
         } else if (holdvalue.contentEquals("Together With ICSE Class 10 Mathematics, English Language, Hindi, Biology, Chemistry (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-mathematics-english-language-hindi-biology-chemistry-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2756");
-        }else if (holdvalue.contentEquals("Together With ICSE Class 10 Computer Application,English Language,Geography,History & Civics,Hindi (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
+        } else if (holdvalue.contentEquals("Together With ICSE Class 10 Computer Application,English Language,Geography,History & Civics,Hindi (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-computer-application-english-language-geography-history-and-civics-hindi-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2758");
         } else if (holdvalue.contentEquals("Together With ICSE Class 10 Geography ,History & Civics,Computer Application,English Literature,Hindi (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-geography-history-and-civics-computer-application-english-literature-hindi-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2759");
@@ -2092,7 +2075,7 @@ ProgressBar progressBar;
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-english-literature-computer-application-mathematics-history-and-civics-geography-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2762");
         } else if (holdvalue.contentEquals("Together With ICSE Class 10 History & Civics, Geography, English Language, Computer Application, Mathematics (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-history-and-civics-geography-english-language-computer-application-mathematics-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2763");
-        }else if (holdvalue.contentEquals("Together With ICSE Class 10 Biology,Physics,English Literature,Computer Application,Mathematics (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
+        } else if (holdvalue.contentEquals("Together With ICSE Class 10 Biology,Physics,English Literature,Computer Application,Mathematics (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-biology-physics-english-literature-computer-application-mathematics-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2765");
         } else if (holdvalue.contentEquals("Together With ICSE Class 10 English Language,Computer Application,Mathematics,Chemistry,Physics (Set of 5 books) Question Bank Exam 2022-23 (Based on the latest Syllabus)")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-english-language-computer-application-mathematics-chemistry-physics-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2766");
@@ -2104,7 +2087,7 @@ ProgressBar progressBar;
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-physics-english-literature-mathematics-biology-chemistry-set-of-5-books-question-bank-exam-2022-23-based-on-the-latest-syllabus?type=p_book&id=2769");
         } else if (holdvalue.contentEquals("Together With ICSE Class 10 Mathematics, Computer Application, Biology, Chemistry, Geography, History & Civics, English Language, Hindi, Physics (Set of 9 books) Question Bank Exam 2022-23 (Based on")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-mathematics-computer-application-biology-chemistry-geography-history-and-civics-english-language-hindi-physics-set-of-9-books-question-bank-exam-2022-23-based-on?type=p_book&id=2770");
-        }else if (holdvalue.contentEquals("Together With ICSE Class 10 Mathematics, Computer Application, Biology, Chemistry, Geography, History & Civics, English Literature, Hindi, Physics (Set of 9 books) Question Bank Exam 2022-23 (Based o")) {
+        } else if (holdvalue.contentEquals("Together With ICSE Class 10 Mathematics, Computer Application, Biology, Chemistry, Geography, History & Civics, English Literature, Hindi, Physics (Set of 9 books) Question Bank Exam 2022-23 (Based o")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-mathematics-computer-application-biology-chemistry-geography-history-and-civics-english-literature-hindi-physics-set-of-9-books-question-bank-exam-2022-23-based-o?type=p_book&id=2771");
         } else if (holdvalue.contentEquals("ogether With ICSE Class 10 Mathematics, Computer Application, Biology,Physics,Chemistry, Geography, History & Civics, English Literature (Set of 8 books) Question Bank Exam 2022-23 (Based on the lat")) {
             startWebView("https://www.rachnasagar.in/mobile/icse/together-with-icse-class-10-mathematics-computer-application-biology-physics-chemistry-geography-history-and-civics-english-literature-set-of-8-books-question-bank-exam-2022-23-based-on-the-lat?type=p_book&id=2773");
@@ -2114,11 +2097,11 @@ ProgressBar progressBar;
             startWebView("https://www.rachnasagar.in/mobile/cbse/together-with-cbse-class-11-english-core-pow-solution-question-bank-study-material-exam-2023-based-on-the-latest-syllabus?type=p_book&id=2787");
 
         } else {
-            Toast.makeText(FirstBottomPage.this,"There are no books",Toast.LENGTH_SHORT).show();
+            Toast.makeText(FirstBottomPage.this, "There are no books", Toast.LENGTH_SHORT).show();
         }
     }
 
-    }
+}
 
 
 

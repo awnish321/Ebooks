@@ -68,7 +68,7 @@ private void Buttonsdetails() {
 		public void onClick(View v) {
 		// TODO Auto-generated method stub
 		  if(v==Btn_Simple_Ebook) {
-			Intent intent = new Intent(Shoppling_List_Dual_Page.this,My_Downloads_EBookList.class);
+			Intent intent = new Intent(Shoppling_List_Dual_Page.this, myDownloadsEBookList.class);
 			startActivity(intent);
 		}
 		if(v==Btn_Interactive_Ebook) {

@@ -72,9 +72,7 @@
         <activity
             android:name=".FirstBottomPage"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.WebViewAbout"
             android:exported="false"
@@ -108,7 +106,7 @@
         <activity
             android:name=".activity.LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".WelcomeActivity"
             android:exported="true"
@@ -165,7 +163,7 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity android:name=".activity.My_Downloads_Intra_EBookList" />
-        <activity android:name=".activity.My_Downloads_EBookList" />
+        <activity android:name=".activity.myDownloadsEBookList" />
     </application>
 
 </manifest>

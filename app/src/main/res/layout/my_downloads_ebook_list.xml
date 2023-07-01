@@ -5,22 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#EAD99B"
     android:orientation="vertical">
-    
-    
 
     <GridView
         android:id="@+id/Gv_subcat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:horizontalSpacing="15dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:horizontalSpacing="10dp"
         android:numColumns="2"
-        android:verticalSpacing="15dp" >
+        android:scrollbars="none"
+        android:verticalSpacing="10dp" >
 
     </GridView>
-
 
 </LinearLayout>

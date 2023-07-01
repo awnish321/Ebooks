@@ -129,8 +129,7 @@ public class LoginActivity extends AppCompatActivity {
         marquee.setSelected(true);
         cd = new ConnectionDetector(getApplicationContext());
         //setTvZoomInOutAnimation();
-        Device_Id = Settings.Secure.getString(getApplicationContext().getContentResolver(),
-                Settings.Secure.ANDROID_ID);
+        Device_Id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
         Mob_Id = Build.ID;
         Mob_Product = Build.PRODUCT;
         Mob_Brand = Build.BRAND;
@@ -158,7 +157,9 @@ public class LoginActivity extends AppCompatActivity {
         webView2.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         progressBar = new ProgressBar(LoginActivity.this);
         getemail = request_edit.getText().toString();
-        request_submit.setOnClickListener(new View.OnClickListener() {
+
+        request_submit.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 getemail = request_edit.getText().toString();
@@ -192,36 +193,32 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             getotp = forget_edit.getText().toString();
                             LoginOtpUrl();
-
-
                         }
                         //dialogss.dismiss();
                     }
 
                 });
                 otpdialog.show();
-
             }
         });
-        webView2.setWebChromeClient(new WebChromeClient() {
+        webView2.setWebChromeClient(new WebChromeClient()
+        {
             public void onProgressChanged(WebView view, int progress) {
                 progressBar.setProgress(progress);
-                if (progress == 100) {
+                if (progress == 100)
+                {
                     progressBar.setVisibility(View.GONE);
 
                 } else {
                     progressBar.setVisibility(View.VISIBLE);
-
                 }
             }
         });
         webView2.setDownloadListener(new DownloadListener() {
-
             @Override
-            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                DownloadManager.Request request = new DownloadManager.Request(
-                        android.net.Uri.parse(url));
-
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength)
+            {
+                DownloadManager.Request request = new DownloadManager.Request(android.net.Uri.parse(url));
                 request.allowScanningByMediaScanner();
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED); //Notify client once download is completed!
                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Name of your downloadble file goes here, example: Mathematics II ");
@@ -233,13 +230,15 @@ public class LoginActivity extends AppCompatActivity {
         });
         //AllBooks();
         bottomNavigationView.setItemIconTintList(null);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_product2:
                         linearLayout1.setVisibility(View.GONE);
-                        if (isInternetPresent) {
+                        if (isInternetPresent)
+                        {
                             Log.d("awaaa", "innnn");
                             linearLayout1.setVisibility(View.GONE);
                             linearLayout.setVisibility(View.GONE);
@@ -249,7 +248,6 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("awaaa1", "innnn");
                             startWebView("https://www.rachnasagar.in/mobile/");
                             // webView.loadUrl("https://rachnasagar.in/mobile/books");
-
                         } else {
                             Log.d("awaa2", "innnn");
                             linearLayout1.setVisibility(View.GONE);
@@ -285,6 +283,7 @@ public class LoginActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         searchedit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
@@ -374,8 +373,6 @@ public class LoginActivity extends AppCompatActivity {
                     linearLayout1.setVisibility(View.GONE);
                     linearLayout4.setVisibility(View.GONE);
                     linearLayout.setVisibility(View.GONE);
-
-
                     Log.d("awaaa1", "innnn");
 
                     startWebView("https://rachnasagar.in/mobile/forget-passward");
@@ -417,6 +414,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
         whatsappbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -426,6 +424,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         privacypolicytxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -435,6 +434,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
         abouttext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -443,6 +443,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(about);
             }
         });
+
         skip_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -451,17 +452,13 @@ public class LoginActivity extends AppCompatActivity {
                     linearLayout1.setVisibility(View.GONE);
                     linearLayout4.setVisibility(View.GONE);
                     linearLayout.setVisibility(View.GONE);
-
-
                     Log.d("awaaa1", "innnn");
                     startWebView("https://rachnasagar.in/mobile/");
                     webView2.setVisibility(View.VISIBLE);
 
-
                 } else {
                     Log.d("awaa2", "innnn");
                     linearLayout1.setVisibility(View.GONE);
-
                     webView2.setVisibility(View.GONE);
                     Log.d("awaaa3", "innnn");
                     linearLayout.setVisibility(View.VISIBLE);
@@ -473,7 +470,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private class MyCustomWebViewClient extends WebViewClient {
         @Override
-        public void onLoadResource(WebView view, String url10) {
+        public void onLoadResource(WebView view, String url10)
+        {
             System.out.println("mCurrentUrl1=" + url10);
             if (url10.contentEquals("https://www.rachnasagar.in/api/buynow")) {
                 linearLayout1.setVisibility(View.VISIBLE);
@@ -668,7 +666,8 @@ public class LoginActivity extends AppCompatActivity {
                                 System.out.println("otpvalue1=" + Str_otp1);
 
 
-                                if (Str_Status.trim().equalsIgnoreCase("true")) {
+                                if (Str_Status.trim().equalsIgnoreCase("true"))
+                                {
                                     Log.d("notlogin222", "aaya1" + getotp);
                                     if (Str_otp1.contentEquals(getotp)) {
                                         Log.d("notlogin222", "aaya2");
@@ -695,7 +694,6 @@ public class LoginActivity extends AppCompatActivity {
                                         startActivity(hhh);
                                         finish();
                                     }
-
 
                                 } else {
                                     Toast.makeText(LoginActivity.this, "OTP is incorrect", Toast.LENGTH_SHORT).show();
@@ -1155,10 +1153,10 @@ public class LoginActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("SetJavaScriptEnabled")
-    private void startWebView(String url) {
+    private void startWebView(String url)
+    {
         // Javascript inabled on webview
         webView2.requestFocus();
         webView2.getSettings().setJavaScriptEnabled(true);
@@ -1182,7 +1180,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void weballsetting123() {
+    public void weballsetting123()
+    {
         webView2.getSettings().setJavaScriptEnabled(true);
         webView2.requestFocus();
         webView2.getSettings().setLightTouchEnabled(true);
@@ -1195,7 +1194,6 @@ public class LoginActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setBuiltInZoomControls(true);
         webView2.requestFocusFromTouch();
-
         webView2.setWebChromeClient(new WebChromeClient());
         webView2.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
         webView2.getSettings().setUseWideViewPort(true);

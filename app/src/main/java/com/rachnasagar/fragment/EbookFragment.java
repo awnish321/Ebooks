@@ -70,24 +70,18 @@ public class EbookFragment extends Fragment implements View.OnClickListener {
     FragmentManager fm;
     FirebaseRemoteConfig mFirebaseRemoteConfig;
     TextView tv1,tv2,tv3,tv4;
-
     String Login_UserID,Login_Value ;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     Boolean isInternetPresent = false;
     // Connection detector class
     ConnectionDetector cd;
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_ebook, container, false);
        // fm.beginTransaction().replace(R.id.frame.new PDFNavAct)
         Buttonsdetails();
-
         // fire();
         somedata();
 
@@ -156,14 +150,10 @@ public class EbookFragment extends Fragment implements View.OnClickListener {
         tv3=view.findViewById(R.id.temp3);
         tv4=view.findViewById(R.id.temp4);
 
-
-
         Btn_Simple_Ebook1=view.findViewById(R.id.btn_ebooks);
         Btn_Interactive_Ebook1=view.findViewById(R.id.btn_interebooks);
         Btn_Simple_Ebook1.setOnClickListener(this);
         Btn_Interactive_Ebook1.setOnClickListener(this);
-
-
     }
 
     public void displayWelcomeMessage(){
@@ -177,8 +167,6 @@ public class EbookFragment extends Fragment implements View.OnClickListener {
        // tv2.setText(s2);
         //tv3.setText(s1);
        // tv4.setText(s2);
-
-
     }
     @Override
     public void onClick(View v) {

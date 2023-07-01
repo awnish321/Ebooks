@@ -1,222 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#EAD99B"
     android:orientation="vertical"
     tools:context=".activity.Book_Download_Page">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent">
-    <androidx.cardview.widget.CardView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            app:cardCornerRadius="22dp"
-            android:layout_height="500dp">
-            <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:orientation="vertical" >
+                android:layout_height="500dp"
+                android:layout_margin="2dp"
+                app:cardCornerRadius="22dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:id="@+id/Txt_Book_Name"
-                        android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text=""
-                        android:fontFamily="sans-serif-medium"
-                        android:textColor="#D50D0D"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp" >
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight=".6"
-                        android:orientation="vertical" >
-
-                        <ImageView
-                            android:id="@+id/Img_Book_Image"
-                            android:layout_width="220dp"
-                            android:layout_height="200dp"
+                        <TextView
+                            android:id="@+id/Txt_Book_Name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_launcher" />
-
-                        <ImageView
-                            android:id="@+id/checks"
-                            android:layout_width="220dp"
-                            android:layout_height="50dp"
-                            android:visibility="gone"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_check_24" />
-
+                            android:fontFamily="sans-serif-medium"
+                            android:text=""
+                            android:textColor="#D50D0D"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight=".4"
-                            android:orientation="horizontal" >
+                            android:layout_marginTop="5dp"
+                            android:layout_weight=".6"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/Img_Book_Image"
+                                android:layout_width="220dp"
+                                android:layout_height="200dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_launcher" />
+
+                            <ImageView
+                                android:id="@+id/checks"
+                                android:layout_width="220dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_baseline_check_24"
+                                android:visibility="gone" />
+
                         </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp" >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical" >
-                        <Button
-                            android:id="@+id/btn_Download_Book"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:visibility="gone"
-                            android:background="@drawable/download_books"
-                            android:layout_marginTop="20dp" />
-                        <Button
-                            android:id="@+id/btn_Delete_Book"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="20dp"
-                            android:visibility="gone"
-                            android:background="@drawable/delete_books"/>
 
-                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/Txt_Ebook_msg"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".4"
+                                android:orientation="horizontal"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btn_Download_Book"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/download_books"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/btn_Delete_Book"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/delete_books"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:visibility="gone"
-                            android:textColor="#ffffff"
-                            android:text="Go to My eBooks Section to read the book." />
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/Txt_Ebook_msg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Go to My eBooks Section to read the book."
+                                android:textColor="#ffffff"
+                                android:visibility="gone" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/btn_Ebookss"
-            app:cardCornerRadius="22dp"
-            android:layout_height="150dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <com.airbnb.lottie.LottieAnimationView
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_Ebookss"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/booksanimation1"
-                    app:lottie_rawRes="@raw/books1"
-                    android:layout_gravity="center"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"/>
+                    android:layout_height="150dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="22dp">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/booksanimation1"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/books1" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="eBook Reader"
+                            android:textColor="#ED1B08"
+                            android:textSize="26dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_Interbookss"
                     android:layout_width="match_parent"
-                    android:text="eBook Reader"
-                    android:textSize="26dp"
-                    android:gravity="center"
-                    android:textColor="#ED1B08"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    app:cardCornerRadius="22dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/booksanimation2"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/books1" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+
+                            android:text="Interactive_eBook Reader"
+                            android:textColor="#ED1B08"
+                            android:textSize="20dp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <!--<Button
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btn_Ebookss"
                     android:layout_height="wrap_content"/>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:id="@+id/btn_Interbookss"
+                            android:layout_height="wrap_content"/>-->
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/btn_Interbookss"
-            app:cardCornerRadius="22dp"
-            android:layout_marginLeft="10dp"
-            android:layout_height="150dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+    </ScrollView>
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/booksanimation2"
-                    app:lottie_rawRes="@raw/books1"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Interactive_eBook Reader"
-                android:textSize="20dp"
-
-                android:gravity="center"
-                android:textColor="#ED1B08"
-                android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-<!--<Button
-    android:layout_width="wrap_content"
-    android:id="@+id/btn_Ebookss"
-    android:layout_height="wrap_content"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:id="@+id/btn_Interbookss"
-            android:layout_height="wrap_content"/>-->
-
-   </LinearLayout>
-    </LinearLayout>
-</ScrollView>
 </LinearLayout>

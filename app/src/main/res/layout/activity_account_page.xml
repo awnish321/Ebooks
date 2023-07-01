@@ -13,7 +13,6 @@
     android:layout_width="match_parent"
     android:weightSum="2"
     android:layout_marginTop="160dp"
-
     android:orientation="horizontal"
     android:layout_height="wrap_content">
     <TextView
@@ -23,7 +22,6 @@
         android:layout_marginTop="10dp"
         android:textColor="#000000"
         android:gravity="end"
-
         android:textSize="22dp"
         android:id="@+id/hello1"
         android:layout_height="wrap_content"/>
@@ -55,7 +53,6 @@
         android:background="#f7807c"
         android:id="@+id/accountaddress"
         android:layout_height="wrap_content"/>
-
     <Button
         android:layout_width="match_parent"
         android:text="YOUR PROFILE"
@@ -72,8 +69,6 @@
         android:background="#f7807c"
         android:id="@+id/accountwishlist"
         android:layout_height="wrap_content"/>
-
-
     <Button
         android:layout_width="match_parent"
         android:text="Logout"

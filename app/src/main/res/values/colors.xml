@@ -65,6 +65,7 @@
     <color name="login_bk_color">#fff</color>
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#DA0303</color>
+    <color name="green">#4CAF50</color>
 
 
     <!-- Customize your icon here. -->

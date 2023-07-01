@@ -71,7 +71,7 @@ public class My_Downloads_Intra_EBookList extends Activity{
      	 public void onCreate(Bundle savedInstanceState) {
      	 	super.onCreate(savedInstanceState);
      	 	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
- 	        setContentView(R.layout.subcat1);
+ 	        setContentView(R.layout.my_downloads_ebook_list);
 
  	        //creating connection detector class instance
  	  			cd = new ConnectionDetector(getApplicationContext());

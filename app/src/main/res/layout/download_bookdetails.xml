@@ -1,111 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_margin="10dp"
-    android:background="#32ffffff">
-
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/text_book_title"
-                 android:layout_width="250dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:text=""/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-
-        <ImageView
-            android:id="@+id/img_Book_Image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_launcher" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/text_book_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-             android:textSize="22dp"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
-            android:text="TextView" />
-
-    </LinearLayout>
--->
+    android:background="#EAD99B"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        app:cardCornerRadius="23dp"
+        android:layout_height="350dp"
+        android:layout_margin="2dp"
         app:cardBackgroundColor="@android:color/white"
-        android:layout_height="350dp">
+        app:cardCornerRadius="25dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/img_Book_Image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="25dp" />
+                android:layout_marginTop="15dp"
+                android:scaleType="fitCenter" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:textColor="#E11B09"
-                android:fontFamily="sans-serif-medium"
-                android:textStyle="normal|bold"
-                android:layout_below="@+id/img_Book_Image"
-                android:layout_marginTop="12dp"
                 android:id="@+id/text_book_title"
-                android:layout_height="wrap_content"/>
-            <TextView
                 android:layout_width="match_parent"
-                android:gravity="center"
-                android:textColor="#FA4700"
-                android:layout_below="@+id/text_book_title"
-                android:layout_marginTop="10dp"
-                android:id="@+id/text_book_type"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="4"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textColor="#E11B09"
+                android:textStyle="normal|bold" />
 
-        </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_book_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FA4700" />
+
+                    <TextView
+                        android:id="@+id/ebook_text_book_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:text=" ( Free )"
+                        android:textColor="#FA4700"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#FA4700" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:id="@+id/imgDownload"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/ic_baseline_arrow_downward_24"
+                    app:tint="@color/red" />
+
+                <ImageView
+                    android:id="@+id/imgSuccess"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/ic_baseline_check_24" />
+
+                <ImageView
+                    android:id="@+id/imgDelete"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/baseline_delete_24"
+                    app:tint="@color/red" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
 </RelativeLayout>

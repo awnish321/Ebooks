@@ -89,7 +89,6 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 		m_grid.setOnLongClickListener(new View.OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View view) {
-
 				return true;
 			}
 		});
@@ -100,26 +99,32 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 		//m_path.setEnabled(false);
 		m_grid.setOnItemClickListener(this);
 		setContentView(m_layout);
-
 		Log.d("ss55"    ,"u7u7u7");
 		//m_grid.PDFSetRootPath("/storage/emulated/0/Android/data/com.rachnasagar/files/Documents/.Rachnasagar/eBook");
-		if(To_Open.equalsIgnoreCase("Ebook")) {
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+		if(To_Open.equalsIgnoreCase("Ebook"))
+		{
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+			{
 				Log.d("rootpath", "111");
 				m_grid.PDFSetRootPath("/storage/emulated/0/Android/data/com.rachnasagar/files/Documents/.Rachna/eBook");
 				//headerTitleText.setText("eBook-Downloads");
-
-			} else {
+			}
+			else
+			{
 				Log.d("rootpath", "111");
 				m_grid.PDFSetRootPath("/storage/emulated/0/.Rachna/eBook");
 				//headerTitleText.setText("eBook-Downloads");
 			}
-		}else{
-
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+		}
+		else
+		{
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+			{
 				     m_grid.PDFSetRootPath("/storage/emulated/0/Android/data/com.rachnasagar/files/Documents/.Rachna/Interactive eBook");
 					//headerTitleText.setText("Interactive eBook-Downloads");
-			} else {
+			}
+			else
+			{
 				Log.d("rootpath", "111");
 				//m_grid.PDFSetRootPath("/storage/emulated/0/.Rachna/Interactive eBook");
 				m_grid.PDFSetRootPath("/storage/emulated/0/.Rachna/Interactive eBook");
@@ -151,7 +156,6 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 		}
 		return fileList;
 	}
-
 	@SuppressLint("NewApi")
 	private void GetDevicedetails() {
 
@@ -162,7 +166,6 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 		Mob_Manufacture= android.os.Build.MANUFACTURER;
 		Mob_Model = android.os.Build.MODEL;
 	}
-		
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -173,17 +176,14 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
     {
     	super.onDestroy();
     }
-    private void onFail(Document doc, String msg)//treat open failed.
-    {
+    private void onFail(Document doc, String msg) {
     	doc.Close();
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-    private void InputPswd(PDFGridItem item)//treat password
-    {
+    private void InputPswd(PDFGridItem item) {
 		LinearLayout layout = (LinearLayout)LayoutInflater.from(this).inflate(R.layout.dlg_pswd, null);
 		final EditText tpassword =layout.findViewById(R.id.txt_password);
 		final PDFGridItem gitem = item;
-
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int which)
@@ -224,13 +224,11 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 		builder.setTitle("Input Password");
 		builder.setCancelable(false);
 		builder.setView(layout);
-
 		AlertDialog dlg = builder.create();
 		dlg.show();
     }
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)//listener for icon clicked.
-	{
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		 item = (PDFGridItem)arg1;
 		if( item.is_dir() ) {
 			m_grid.PDFGotoSubdir(item.get_name());
@@ -248,9 +246,7 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 			 new GetCheckStatus().execute();
 		}
 	}
-
 	public class GetCheckStatus extends AsyncTask<Void, Void, Void> {
-
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -260,7 +256,6 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 			dialog.setCancelable(false);
 			dialog.show();
 		}
-
 		@Override
 		protected Void doInBackground(Void... arg0) {
 			HttpHandler sh = new HttpHandler();
@@ -311,7 +306,7 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 					{
 						PDFNavAct.this.runOnUiThread(new Runnable() {
 							public void run() {
-								Toast.makeText(PDFNavAct.this, Str_Msg, Toast.LENGTH_SHORT).show();
+								Toast.makeText(PDFNavAct.this, Str_Msg, Toast.LENGTH_LONG).show();
 							}
 						});
 						//Toast.makeText(getApplicationContext(),Str_Msg,Toast.LENGTH_SHORT).show();
@@ -350,7 +345,6 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 							@Override
 							public void onClick(View v) {
 								finish();
-
 							}
 						});
 						dialoga.show();
@@ -368,8 +362,7 @@ public class PDFNavAct extends Activity implements OnItemClickListener {
 				dialog.dismiss();
 		}
 	}
-	public void InitView(Document doc)//process to view PDF file
-    {
+	public void InitView(Document doc) {
 		PDFViewAct.ms_tran_doc = doc;
 		Intent intent = new Intent(this, PDFViewAct.class);
 		intent.putExtra("Ttshide", hide);

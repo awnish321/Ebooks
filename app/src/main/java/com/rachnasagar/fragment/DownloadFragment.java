@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -42,7 +40,7 @@ import com.rachnasagar.Common.ConnectionDetector;
 import com.rachnasagar.Common.Networking;
 import com.rachnasagar.R;
 import com.rachnasagar.activity.LoginActivity;
-import com.rachnasagar.activity.My_Downloads_EBookList;
+import com.rachnasagar.activity.myDownloadsEBookList;
 import com.rachnasagar.activity.My_Downloads_Intra_EBookList;
 
 import org.json.JSONArray;
@@ -59,19 +57,14 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
     File ebook_directory;
     File file_details;
     FirebaseRemoteConfig mFirebaseRemoteConfig;
-    TextView tv1,tv2,tv3,tv4,tv5;
-    //LottieAnimationView lottieAnimationView;
+    TextView tv1,tv2,tv3,tv4;
     SharedPreferences preferences;
-    SharedPreferences.Editor editor;
     Boolean isInternetPresent = false;
-    // Connection detector class
     ConnectionDetector cd;
-    PackageInfo pinfo;
     String Login_UserID,Login_Value;
-    //TextView textView;
     String Device_Id,Mob_Id,Mob_Product,Mob_Brand,Mob_Manufacture,Mob_Model;
-    String Cat_Name ,Str_Marquee ,	Str_Notify_Msg_Link,Str_Notify_Msg_Actvty;
-    TextView headerTitleText,Txt_Marquee;
+    String Str_Marquee ,Str_Notify_Msg_Link;
+    TextView Txt_Marquee;
     public static String PACKAGE_NAME;
     String sVersionName;
     int sVersionCode;
@@ -124,7 +117,7 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    public void Aleart(){
+    public void Aleart() {
         new AlertDialog.Builder(getActivity())
                 .setMessage("You don't have internet connection")
                 .setTitle("No Internet Connection")
@@ -137,6 +130,7 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                     }
                 }).show();
     }
+
     public  void fire(){
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
@@ -198,30 +192,24 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
-
         if(v==Btn_Simple_Ebook) {
-
             file_details = new File(ebook_directory, "/.Rachna/eBook");
             Log.d("filedeatils", String.valueOf(file_details));
             Log.d("filedeatils2", String.valueOf(file_details));
-            Intent intent1 = new Intent(getActivity(), My_Downloads_EBookList.class);
+            Intent intent1 = new Intent(getActivity(), myDownloadsEBookList.class);
             intent1.putExtra("To_Open","Ebook");
             startActivity(intent1);
-
         }
-
         if(v==Btn_Interactive_Ebook) {
-
             file_details = new File(ebook_directory, "/.Rachna/Interactive eBook");
             Log.d("filedeatils4", String.valueOf(file_details));
             Intent intent = new Intent(getActivity(), My_Downloads_Intra_EBookList.class);
             intent.putExtra("To_Open","Interactive_Ebook");
             intent.putExtra("hide1","button1");
             startActivity(intent);
-
         }
     }
+
     private void LogOutService() {
 
         preferences = getActivity().getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
@@ -299,10 +287,8 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
         queue.add(postRequest);
 
     }
+
     private void NotifyUpdate() {
-
-
-
         // TODO Auto-generated method stub
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
@@ -320,13 +306,9 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                             final JSONArray array;
                             array = new JSONArray(response);
 
-
-
-
                             for (int i = 0; i < array.length(); i++) {
 
                                 JSONObject object;
-
 
                                 object = new JSONObject(array.getString(i).toString());
 
@@ -395,19 +377,9 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
         };
         queue.add(postRequest);
 
-
-
-
-
     }
+
     private void NotifyUpdateMsg() {
-
-
-
-
-
-
-
 
         // TODO Auto-generated method stub
 
@@ -425,10 +397,6 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                         try {
                             final JSONArray array;
                             array = new JSONArray(response);
-
-
-
-
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject object;
                                 object = new JSONObject(array.getString(i).toString());
@@ -488,6 +456,7 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
         };
         queue.add(postRequest);
     }
+
     private void NotifyUpdateMsglink() {
         // TODO Auto-generated method stub
         RequestQueue queue = Volley.newRequestQueue(getActivity());
@@ -505,13 +474,9 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                             final JSONArray array;
                             array = new JSONArray(response);
 
-
-
-
                             for (int i = 0; i < array.length(); i++) {
 
                                 JSONObject object;
-
 
                                 object = new JSONObject(array.getString(i).toString());
 
@@ -523,12 +488,7 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                                     String	Str_Notify_Msg=object.get("Notify_Message").toString();
 
                                     Str_Notify_Msg_Link=object.get("Notify_Link").toString();
-
-
                                     System.out.println("Deegggg"+" "+object.get("Notify_Message").toString());
-
-
-
 
                                     final Dialog dialoga = new Dialog(getActivity());
                                     dialoga.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -546,14 +506,9 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                                     dialogButton.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-
-
-
                                             Intent i = new Intent(Intent.ACTION_VIEW);
                                             i.setData(Uri.parse(Str_Notify_Msg_Link));
                                             startActivity(i);
-
-
                                         }
                                     });
 
@@ -580,14 +535,7 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                             // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
-
-
-
                     }
-
-
-
-
                 },
                 new Response.ErrorListener()
                 {
@@ -614,11 +562,8 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
         };
         queue.add(postRequest);
 
-
-
-
-
     }
+
     private void MarqueeShow() {
 
         // TODO Auto-generated method stub
@@ -637,9 +582,6 @@ public class DownloadFragment extends Fragment implements View.OnClickListener {
                         try {
                             final JSONArray array;
                             array = new JSONArray(response);
-
-
-
 
                             for (int i = 0; i < array.length(); i++) {
 
