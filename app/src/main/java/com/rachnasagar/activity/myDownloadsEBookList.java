@@ -1,12 +1,12 @@
 package com.rachnasagar.activity;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,10 +14,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Request.Method;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -26,57 +27,64 @@ import com.android.volley.toolbox.Volley;
 import com.rachnasagar.Common.ConnectionDetector;
 import com.rachnasagar.Common.Networking;
 import com.rachnasagar.R;
-import com.rachnasagar.adapter.GridViewAdapterBooksDownload;
+import com.rachnasagar.adapter.GridViewAdapterEBooksDownload;
 import com.rachnasagar.adapter.VinSetterGetter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+public class myDownloadsEBookList extends AppCompatActivity {
 
-public class myDownloadsEBookList extends Activity {
-
-    private static String URLBooks;
     ProgressHUD dialog;
     String message = "Please Wait....";
-    ProgressDialog progressDialog;
     GridView gv_subcat;
     public static String[] name;
-    public static String[] image_url;
-    public static String[] price;
-    public static String[] mrp;
-    public static String[] book_id;
     VinSetterGetter getter;
-    ArrayList<VinSetterGetter> vinarrayList;
+//    ArrayList<VinSetterGetter> vinarrayList;
 
-    String Cat_Name, Category, Sub_name, Class_Name, Download_Id, Details, Login_UserID;
+    ArrayList<VinSetterGetter> ebookList = new ArrayList<VinSetterGetter>();
+
+    String Login_UserID;
     boolean Shopping_List_Status;
     String Shopping_List_Msg;
-    ImageView headerTitleImage, header_search;
-    TextView headerTitleText;
     SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-    // flag for Internet connection status
     Boolean isInternetPresent = false;
-    // Connection detector class
     ConnectionDetector cd;
+    Context context;
+    File ebook_directory;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.my_downloads_ebook_list);
 
+        context=myDownloadsEBookList.this;
         cd = new ConnectionDetector(getApplicationContext());
 
         preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         Login_UserID = preferences.getString("Login_UserId", "");
         // get Internet status
         isInternetPresent = cd.isConnectingToInternet();
-        vinarrayList = new ArrayList<VinSetterGetter>();
+//        vinarrayList = new ArrayList<VinSetterGetter>();
         // check for Internet status
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ebook_directory = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+        } else {
+            ebook_directory = Environment.getExternalStorageDirectory();
+        }
+
+        gv_subcat = (GridView) findViewById(R.id.Gv_subcat);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (isInternetPresent) {
             MyDownloadsList();
             String message = "Please Wait....";
@@ -91,8 +99,6 @@ public class myDownloadsEBookList extends Activity {
             }
             dialog.setCancelable(true);
             Window window = dialog.getWindow();
-					/*window.setLayout(WindowManager.LayoutParams.FILL_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-					dialog.getWindow().getAttributes().gravity = Gravity.CENTER;*/
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.dimAmount = 0.2f;
             dialog.getWindow().setAttributes(lp);
@@ -104,7 +110,6 @@ public class myDownloadsEBookList extends Activity {
             Window window = dialoga.getWindow();
             window.setLayout(WindowManager.LayoutParams.FILL_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
             dialoga.setCancelable(false);
-            // set the custom dialog components - text, image and button
             TextView text = (TextView) dialoga.findViewById(R.id.error_msg);
             text.setText("You don't have internet connection. Please Check ?");
             Button dialogButton = (Button) dialoga.findViewById(R.id.b_error_button);
@@ -118,14 +123,14 @@ public class myDownloadsEBookList extends Activity {
             });
             dialoga.show();
         }
-        gv_subcat = (GridView) findViewById(R.id.Gv_subcat);
+
     }
 
     private void MyDownloadsList() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String urlmanual = Networking.url + "eBookMyDownloadList.php?";
-        StringRequest postRequest = new StringRequest(Method.POST, urlmanual,
+        StringRequest postRequest = new StringRequest(Request.Method.POST, urlmanual,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -135,7 +140,7 @@ public class myDownloadsEBookList extends Activity {
                             final JSONArray array;
                             array = new JSONArray(response);
                             JSONObject object;
-                            vinarrayList.clear();
+                            ebookList.clear();
                             for (int i = 0; i < array.length(); i++) {
                                 getter = new VinSetterGetter();
                                 object = new JSONObject(array.getString(i).toString());
@@ -152,7 +157,7 @@ public class myDownloadsEBookList extends Activity {
                                     getter.setBookType(object.getString("Book_Type"));
                                     getter.setBookName(object.getString("Book_Name"));
                                     getter.setProduct_Subscription_Type(object.getString("Product_Subscription_Type"));
-                                    vinarrayList.add(getter);
+                                    ebookList.add(getter);
                                 }
                                 else
                                 {
@@ -175,9 +180,7 @@ public class myDownloadsEBookList extends Activity {
                                     });
                                     dialoga.show();
                                 }
-                                if (dialog.isShowing())
-                                    dialog.dismiss();
-//                                gv_subcat.setOnItemClickListener(new OnItemClickListener()
+//                                gv_subcat.setOnItemClickListener(new AdapterView.OnItemClickListener()
 //                                {
 //                                    @Override
 //                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
@@ -195,7 +198,7 @@ public class myDownloadsEBookList extends Activity {
 //
 //                                            e.printStackTrace();
 //                                        }
-//                                        Intent intent = new Intent(My_Downloads_EBookList.this, Book_Download_Page.class);
+//                                        Intent intent = new Intent(myDownloadsEBookList.this, Book_Download_Page.class);
 //                                        intent.putExtra("Download_Id", Download_Id);
 //                                        intent.putExtra("key1", "value1");
 //                                        startActivity(intent);
@@ -203,10 +206,12 @@ public class myDownloadsEBookList extends Activity {
 //                                    }
 //                                });
                             }
-                            GridViewAdapterBooksDownload adapter = new GridViewAdapterBooksDownload(myDownloadsEBookList.this, vinarrayList);
+                            GridViewAdapterEBooksDownload adapter = new GridViewAdapterEBooksDownload(context, ebookList);
                             gv_subcat.setAdapter(adapter);
-                        } catch (JSONException e) {
 
+                            if (dialog.isShowing())
+                                dialog.dismiss();
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -234,4 +239,5 @@ public class myDownloadsEBookList extends Activity {
         };
         queue.add(postRequest);
     }
+
 }

@@ -49,6 +49,16 @@ public class VinSetterGetter {
     public String order_Bk_Qty;
     public String order_Book_Type;
     public String Product_Subscription_Type;
+    public String notification;
+
+	public String getNotification() {
+		return notification;
+	}
+
+	public void setNotification(String notification) {
+		this.notification = notification;
+	}
+
 	public String getProduct_Subscription_Type() {
 		return Product_Subscription_Type;
 	}

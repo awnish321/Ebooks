@@ -41,9 +41,9 @@ import android.widget.Toast;
 @SuppressLint("NewApi")
 public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitListener {
     Boolean Ttshide;
-    String txtText;
+    String txtText,file_activities;
     private TextToSpeech tts;
-    static protected Document ms_tran_doc;
+    public static Document ms_tran_doc;
     static private int m_tmp_index = 0;
     private PDFAssetStream m_asset_stream = null;
     private PDFHttpStream m_http_stream = null;
@@ -104,6 +104,7 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
         tts = new TextToSpeech(this, this);
 
         Ttshide = getIntent().getExtras().getBoolean("Ttshide");
+        file_activities = getIntent().getStringExtra("file_activities");
 
         if (bmp_format != null) {
             if (bmp_format.compareTo("RGB_565") == 0)
@@ -238,8 +239,7 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
             m_controller.OnPageChanged(pageno);
     }
     @Override
-    public void OnPDFAnnotTapped(VPage vpage, Annotation annot)
-    {
+    public void OnPDFAnnotTapped(VPage vpage, Annotation annot) {
         if (annot != null && (annot.GetType() == 19 || annot.GetType() == 26 || annot.GetType() == 2 || annot.GetType() == 20)) //movie
         {
             m_view.PDFPerformAnnot();
@@ -346,12 +346,10 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
             //Toast.makeText(PDFViewAct.this, "todo: open url:" + uri, Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
     public void OnPDFOpenJS(String js) {
         //Toast.makeText(PDFViewAct.this, "todo: execute java script", Toast.LENGTH_SHORT).show();
     }
-
     @SuppressLint("SdCardPath")
     @Override
     public void OnPDFOpenMovie(String path) {
@@ -362,9 +360,7 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
         startActivity(intent);
         Log.d("videoplayes20", "" + path);
     }
-
     @Override
-
     public void OnPDFOpenSound(int[] paras, String path) {
         //Toast.makeText(PDFViewAct.this, "todo: play sound", Toast.LENGTH_SHORT).show();
 		/*
@@ -407,7 +403,6 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
 		
 		mPlayer.start();*/
     }
-
     @Override
     public void OnPDFOpenAttachment(String path) {
         //Toast.makeText(PDFViewAct.this, "todo: treat attachment", Toast.LENGTH_SHORT).show();
@@ -415,12 +410,10 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
         Intent intent1 = new Intent(this, ShowWebView.class);
         startActivity(intent1);
     }
-
     @Override
     public void OnPDFOpen3D(String path) {
         //Toast.makeText(PDFViewAct.this, "todo: play 3D module", Toast.LENGTH_SHORT).show();
     }
-
     @TargetApi(Build.VERSION_CODES.DONUT)
     @Override
     public void onInit(int status) {
@@ -445,7 +438,6 @@ public class PDFViewAct extends Activity implements PDFLayoutListener, OnInitLis
         }
 
     }
-
     @SuppressLint("NewApi")
     private void speakOut() {
 

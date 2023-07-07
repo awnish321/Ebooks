@@ -55,6 +55,12 @@
         android:usesCleartextTraffic="true"
         tools:replace="icon, label">
         <activity
+            android:name=".activity.PdfEActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PdfIActivity"
+            android:exported="false" />
+        <activity
             android:name=".RequestOtp"
             android:exported="false" />
         <activity

@@ -333,7 +333,8 @@ public class Book_Download_Page extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        if (v == btn_Download_Book) {
+        if (v == btn_Download_Book)
+        {
             Value = null;
             // get Internet status
             isInternetPresent = cd.isConnectingToInternet();
@@ -354,14 +355,8 @@ public class Book_Download_Page extends AppCompatActivity implements View.OnClic
                 } else {
                     zipFile = Environment.getExternalStorageDirectory() + "/" + Book_Zip_Title + ".zip";
                 }
-                Log.d("a12", "" + zipFile);
-                //zipFile = getExternalFilesDir(null)+"/"+Book_Zip_Title+".zip";
 
             } else {
-                // Internet connection is not present
-                // Ask user to connect to Internet
-					/*showAlertDialog(Book_Download_Page.this, "No Internet Connection",
-							"You don't have internet connection.", false);*/
                 new AlertDialog.Builder(Book_Download_Page.this)
                         .setMessage("You don't have internet connection")
                         .setTitle("No Internet Connection")
@@ -378,8 +373,6 @@ public class Book_Download_Page extends AppCompatActivity implements View.OnClic
 
         if (v == btn_Delete_Book) {
             deleted_book = file_details.delete();
-            Log.e("deletebook", "" + deleted_book);
-            //delete_activity = file_activities.delete();
             String message = "Please Wait....";
             dialoga = new ProgressHUD(Book_Download_Page.this, com.radaee.viewlib.R.style.AppTheme);
             dialoga.setTitle("");
@@ -397,9 +390,8 @@ public class Book_Download_Page extends AppCompatActivity implements View.OnClic
             dialoga.getWindow().setAttributes(lp);
             dialoga.show();
 
-            System.out.println("filedetailsnew" + "     " + Book_Type);//&& delete_activity==true
-            if (deleted_book == true) {
-                Log.e("Delete11", "" + deleted_book);
+            if (deleted_book == true)
+            {
                 if (Book_Type.equalsIgnoreCase("eBook") || Book_Type.equalsIgnoreCase("Interactive eBook"))
                 {
                     if (dialoga.isShowing())
@@ -414,7 +406,6 @@ public class Book_Download_Page extends AppCompatActivity implements View.OnClic
                     btn_Delete_Book.setVisibility(View.GONE);
                     txt_Ebook_msg.setVisibility(View.GONE);
                 } else {
-                    System.out.println("dedddddd" + "     " + file_activities);
                     try {
                         System.out.println("fileINdele" + "     " + file_activities);
                         deleteDir(file_activities);
@@ -428,7 +419,6 @@ public class Book_Download_Page extends AppCompatActivity implements View.OnClic
                         btn_Delete_Book.setVisibility(View.GONE);
                         txt_Ebook_msg.setVisibility(View.GONE);
 
-                        //System.out.println("fileINdele"+"     "+file_activities);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
